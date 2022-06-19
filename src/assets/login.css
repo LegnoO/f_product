@@ -1,0 +1,108 @@
+/* @import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+} */
+
+.login-container {
+  padding: 50px;
+  width: 450px;
+  min-height: 400px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 2%
+  );
+  box-shadow: 0 25px 45px rgb(0 0 0 / 20%);
+}
+
+/* .login-container::after {
+  content: "";
+  padding: 50px;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  right: 5px;
+  left: 5px;
+  border-radius: 5px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 2%
+  );
+  box-shadow: 0 25px 45px rgb(0 0 0 / 20%);
+  pointer-events: none;
+} */
+
+.inp-login {
+  min-width: 80%;
+  width: 40vh;
+  padding: 8px 10px;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
+  outline: none;
+}
+
+.form-title {
+  color: #000;
+}
+/* .form > h1 {
+  margin-bottom: 20px;
+} */
+/* .input-form {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+} */
+
+.input-form > input {
+  border: 1px solid gray;
+  color: #111;
+}
+
+.input-form .span-input {
+  color: #000;
+  font-size: 16px;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.submit-button {
+  border: 1px solid black;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 100px;
+  transition: 1s;
+  letter-spacing: 1px;
+  border: 1px solid #111;
+}
+
+.submit-button:hover {
+  background: linear-gradient(
+    115deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(255, 255, 255, 0.25)
+  );
+  color: #111;
+  transition: 0.5s;
+}
+
+.text-error {
+  color: rgb(216, 28, 28);
+}
+
+.link-text:hover {
+  color: red !important;
+}
+.Loading {
+  display: flex;
+  justify-content: center;
+}
+

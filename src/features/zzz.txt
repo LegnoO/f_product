@@ -1,0 +1,32 @@
+// import React from "react";
+// import { useDispatch, useSelector } from "react-redux";
+
+// const FormLogin = () => {
+//   const dispatch = useDispatch();
+//   const onSubmit = async (data) => {
+//     const formdata = {
+//       email: data.email,
+//       password: data.password,
+//       rememberMe: true,
+//     };
+
+//     try {
+//       await dispatch(login(formdata))
+//       //	const result = await serviceCallAPI("login", "POST", data);
+//       //   setLoading(false);
+//       setTimeout(() => {
+//         // setLoading(true);
+//         // navigate("/homepage");
+//       }, 1500);
+
+//       localStorage.setItem("userInfo", JSON.stringify(result.data.data));
+//       // const info = JSON.parse(localStorage.getItem("userInfo"));
+//       // console.log(info);
+//     } catch (error) {
+//       console.log("%cCan not login!", "color:red", "Error:", error.message);
+//     }
+//   };
+//   return <div></div>;
+// };
+
+// export default FormLogin;

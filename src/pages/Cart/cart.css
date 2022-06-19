@@ -1,0 +1,6 @@
+.cart-list{
+    display: flex;
+}
+.cart-list > div,.cart-list > button{
+    margin-left: 0.5rem;
+}
