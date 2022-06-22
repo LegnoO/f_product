@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { CartProvider } from "react-use-cart";
-
+import "./assets/app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/grid.css";
-import "./assets/login.css";
-import HomePage from "./pages/HomePage";
+
+
 import Routing from "./router/Routing";
 import { BrowserRouter } from "react-router-dom";
 import store from "./app/store";

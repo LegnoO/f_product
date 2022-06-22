@@ -1,7 +1,6 @@
 import { useCart } from "react-use-cart";
 // import "../Cart/cart.css";
 import { Link, useNavigate } from "react-router-dom";
-import { userdata } from "../../utils";
 const Cart = () => {
   const {
     isEmpty,
@@ -11,7 +10,8 @@ const Cart = () => {
     removeItem,
     addItem,
   } = useCart();
-console.log(items)
+
+
   const RenderItem = () => {
     return items.map((item, id) => (
       <div key={id}>
@@ -48,7 +48,7 @@ console.log(items)
   if (isEmpty) return <h1 className="d-flex justify-content-center fw-bold text-center text-danger">Your cart is empty</h1>;
   return <div>
     <div>{RenderItem()}</div>
-    <div>{userdata ? (<Link className="btn" to='/checkout'>Checkout</Link>) : (<Link className="btn" to='/login'>Login</Link>)}</div>
+    {/* <div>{userdata ? (<Link className="btn" to='/checkout'>Checkout</Link>) : (<Link className="btn" to='/login'>Login</Link>)}</div> */}
   </div>;
 };
 

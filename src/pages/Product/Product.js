@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import "../Product/product.css";
-import product from "../../data/product.json";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import serviceCallAPI from "../../services/ServicesCallAPI";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../features/productSlice";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 const Product = () => {
-  const [item, setItem] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data, loading } = useSelector((state) => state.product);
@@ -17,106 +14,65 @@ const Product = () => {
   //   newData.splice(index, 1);
   //   setData(newData);
   // };
-  useEffect(() => {
-    GetItem();
-  }, []);
 
-  const GetItem = async () => {
-    // try {
-    //   const result = await serviceCallAPI("products?id=12", "GET");
-    //   console.log(result.data.message, "\n", result.data.data.data);
-    //   setData(result.data.data.data);
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
-    const res = await dispatch(getProductList());
-    if (res.type === "product/getall/fulfilled") {
-      console.log(res);
-      setItem(res.payload);
+  const getList = useCallback(async () => {
+    try {
+      await dispatch(getProductList());
+    } catch (error) {
+      console.log(error);
     }
-  };
+  }, [dispatch]);
 
-  // const RenderItem = () => {
-  //   return item.map((item, index) => (
-  //     <div className="product-container col-3" key={index}>
-  //       <Link to={`/${item.slug}/${item.id}`}>
-  //         <div className="product-item">
-  //           <div className="product-image">
-  //             <img src={item.avatar} />
-  //           </div>
-  //           <div className="box-text">
-  //             <div className="sub-product">{item.name}</div>
-  //             <div className="name-product">{item.detail}</div>
-  //             <div className="price-product">{item.price} ₫</div>
-  //             <button className="buy-product">Add to cart</button>
-  //           </div>
-  //         </div>
-  //       </Link>
-  //     </div>
-  //   ));
-  // };
+  useEffect(() => {
+    getList();
+  }, [dispatch]);
 
-  return (
-    <div className="">
-      {/* <Header /> */}
-      <section className="product-section">
-        <div className="product-content row">
-          <h1>Sản phẩm bán chạy</h1>
-          <section>
-            <div className="container py-3">
-              <div className="row">
-                <div className="col-md-3 mb-4">
-                  <div
-                    className="product-item card text-black p-1"
-                    style={{ borderRadius: "5px" }}
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp"
-                      className="card-img-top"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <div className="text-center">
-                        <h5 className="card-title">Believing is seeing</h5>
-                        <p className="text-muted mb-4">Apple pro display XDR</p>
-                      </div>
-                      <div />
-                      <div className="text-center font-weight-bold mt-4">
-                        <span>700,197 ₫</span>
-                      </div>
-                      <div className="d-flex justify-content-center mt-3">
-                        <button className="btn-add-cart btn btn-danger">Add to Cart</button>
-                      </div>
-                    </div>
-                  </div>
+  const RenderItem = () => {
+    if (data.length) {
+      return data.map((item, index) => (
+        <div className="col-lg-3 col-md-3 col-sm-3 mb-4" key={index} style={{}}>
+          <Link to={`/${item.slug}/${item.id}`}>
+            <div
+              className="product-item card text-black p-1"
+              style={{ borderRadius: "5px" }}
+            >
+              <img src={item.avatar} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <p className="card-text overflow-hidden">{item.name}</p>
+                <p className="text-muted text-center mb-4">ABC</p>
+                <div />
+                <div className="text-center font-weight-bold mt-4">
+                  <span className="fs-5" style={{ color: "#ee4d2d" }}>
+                    {item.price}.000 ₫
+                  </span>
+                </div>
+                <div className="d-flex justify-content-center mt-3">
+                  <button className="btn-add-cart btn btn-danger">
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
-          </section>
+          </Link>
+        </div>
+      ));
+    }
+  };
+
+  return (
+    <>
+      <Header />
+      <section>
+        <div className="container py-3">
+          <h5 className="my-4" style={{ color: "#ee4d2d" }}>
+            Sản phẩm
+          </h5>
+          <div className="row">{RenderItem()}</div>
         </div>
       </section>
-      <br />
-    </div>
+      <Footer />
+    </>
   );
 };
 
 export default Product;
-
-// {data.map((item, index) => (
-//   <div className="product-item col-3" key={index}>
-//     <img src={item.image} />
-//     <h5>{item.name}</h5>
-//     <div className="">{item.price}$</div>
-//     <div className=""></div>
-//     <button className="" onClick={() => DeleteItem()}>
-//       Delete Item
-//     </button>
-//   </div>
-// ))}
-
-{
-  /* <div className='row'>
-        <div className='col-2'><div className='ex'><div className='a'></div></div></div>
-        <div className='col-2'><div className='ex'><div className='a'></div></div></div>
-      </div> */
-}

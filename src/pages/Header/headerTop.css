@@ -11,3 +11,7 @@
   color: red;
   transition: 0.5s;
 }
+
+.nav-hover:hover{
+  background-color:#fff;
+}

@@ -1,7 +1,7 @@
 import serviceCallApi from "./ServicesCallAPI";
 
 
-const listProductAPI = async () => {
+export const listProductAPI = async () => {
   try {
     const result = await serviceCallApi("products?page=1&limit=10&id=2", "GET");
     return result.data.data.data;
@@ -9,4 +9,4 @@ const listProductAPI = async () => {
     return error.message;
   }
 };
-export { listProductAPI };
+

@@ -43,17 +43,15 @@ const DetailProduct = () => {
       <section className="detail-section">
         <div className="detail-container">
           <div className="row detail">
-            <div className="col-6 detail-gallery">
+            <div className="col-md-5 detail-gallery">
               <img src={product.avatar} />
             </div>
 
-            <div className="col-6 detail-gallery">
+            <div className="col-md-6 detail-gallery">
               <h1>{product.name}</h1>
               <h3>{product.price}</h3>
               <p>
-                Đồng hồ nam Curnon Colosseum Guandao mang phong cách mạnh mẽ,
-                trưởng thành, vững chãi; Dây da, Kích thước mặt lớn 42mm, Kính
-                Sapphire chống xước, Chống nước 5ATM vượt trội...
+                {product.detail}
               </p>
               <ul>
                 <li>Type: COLOSSEUM</li>
