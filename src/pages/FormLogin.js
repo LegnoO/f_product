@@ -1,21 +1,45 @@
+import "./../assets/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import ReactLoading from "react-loading";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../features/loginSlice";
-import Header from "../pages/Header/Header";
+import HeaderMain from "../pages/Header/HeaderMain";
 import Footer from "../pages/Footer/Footer";
-import '../assets/login.css'
-function FormLogin() {
+import "../assets/login.css";
+import { useEffect } from "react";
+import { auth } from "../services/authService";
+import { useCart } from "react-use-cart";
+
+const FormLogin = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+    addItem,
+  } = useCart();
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
   const { loading, loggedIn, error } = useSelector((state) => state.signin);
+
+  useEffect(() => {
+    const userdata = auth.getUser();
+    if (userdata) {
+      navigate("/product");
+    } else {
+    }
+  }, []);
 
   const onSubmit = async (data) => {
     const formdata = {
@@ -25,8 +49,8 @@ function FormLogin() {
     };
 
     try {
-      const res = await dispatch(login(formdata));
-      console.log(res);
+      await dispatch(login(formdata));
+      navigate("/product");
     } catch (error) {
       console.log("%cCan not login!", "color:red", "Error:", error.message);
     }
@@ -34,7 +58,7 @@ function FormLogin() {
 
   return (
     <>
-      <Header />
+      <HeaderMain />
       <div className="container rounded-1 mt-5">
         {loading ? (
           <div className="Loading">
@@ -106,6 +130,6 @@ function FormLogin() {
       <Footer />
     </>
   );
-}
+};
 
 export default FormLogin;

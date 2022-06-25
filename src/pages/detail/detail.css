@@ -53,8 +53,13 @@
   border-radius: 5%;
   font-size: 14px;
   border: 0;
-  margin-left: 0.75rem;
   background-color: #d26e4b;
+  transition: 0.5s;
   color: #fff;
   padding: 0.5rem;
+}
+
+.cart .btn-addCart:hover {
+  background-color: #9C5238;
+  transition: 0.5s;
 }

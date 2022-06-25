@@ -1,45 +1,48 @@
-import React from "react";
-import { AiFillSketchCircle } from "react-icons/ai";
+
 import "../Footer/footer.css";
+
 const Footer = () => {
   return (
-    <footer className="mt-5">
+    <footer className="mt-5 bg-light">
       <section>
-        <div className="container bg-light">
+        <div className="container">
           <div className="d-flex justify-content-between pt-5 mb-3">
             <div className="footer-item" style={{ fontSize: "12px" }}>
-              <p className="text-uppercase fw-bold">Về chúng tôi</p>
+              <p className="text-uppercase fw-bold">CHĂM SÓC KHÁCH HÀNG</p>
               <div style={{ color: "#6f787e" }}>
-                <p>Giới thiệu ...</p>
-                <p>Giới thiệu SenMail</p>
-                <p>Quy chế hoạt động</p>
+                <p>Trung Tâm Trợ Giúp</p>
+                <p>Hướng Dẫn Mua Hàng</p>
+                <p>Hướng Dẫn Bán Hàng</p>
+                <p>Thanh Toán</p>
+                <p>Vận Chuyển</p>
+                <p>Chính Sách Bảo Hành</p>
               </div>
             </div>
 
             <div className="footer-item" style={{ fontSize: "12px" }}>
               <p className="text-uppercase fw-bold">Về chúng tôi</p>
               <div style={{ color: "#6f787e" }}>
-                <p>Giới thiệu ...</p>
-                <p>Giới thiệu SenMail</p>
-                <p>Quy chế hoạt động</p>
+                <p>Giới thiệu</p>
+                <p>Tuyển dụng</p>
+                <p>Chính sách bảo mật thanh toán</p>
+                <p>Chính sách bảo mật thông tin cá nhân</p>
+                <p>Chính sách giải quyết khiếu nại</p>
+                <p>Điều khoản sử dụng</p>
+                <p>Điều kiện vận chuyển</p>
               </div>
             </div>
 
             <div className="footer-item" style={{ fontSize: "12px" }}>
-              <p className="text-uppercase fw-bold">Về chúng tôi</p>
+              <p className="text-uppercase fw-bold">Thanh toán</p>
               <div style={{ color: "#6f787e" }}>
-                <p>Giới thiệu ...</p>
-                <p>Giới thiệu SenMail</p>
-                <p>Quy chế hoạt động</p>
+                <p></p>
               </div>
             </div>
 
             <div className="footer-item" style={{ fontSize: "12px" }}>
-              <p className="text-uppercase fw-bold">Về chúng tôi</p>
+              <p className="text-uppercase fw-bold">Theo dõi chúng tôi trên</p>
               <div style={{ color: "#6f787e" }}>
-                <p>Giới thiệu ...</p>
-                <p>Giới thiệu SenMail</p>
-                <p>Quy chế hoạt động</p>
+                <p></p>
               </div>
             </div>
           </div>
